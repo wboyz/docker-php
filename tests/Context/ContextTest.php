@@ -16,7 +16,8 @@ class ContextTest extends TestCase
         $directory = __DIR__.DIRECTORY_SEPARATOR.'context-test';
 
         $context = new Context($directory);
-        $process = new Process('/usr/bin/env tar c .', $directory);
+        $command = ['/usr/bin/env', 'tar', 'c', '.'];
+        $process = new Process($command, $directory);
         $process->run();
 
         $this->assertSame(\strlen($process->getOutput()), \strlen($context->toTar()));

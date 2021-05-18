@@ -15,7 +15,7 @@ use function Amp\call;
 
 trait AmpArtaxStreamEndpointTrait
 {
-    abstract protected function transformResponseBody(string $body, int $status, SerializerInterface $serializer);
+    abstract protected function transformResponseBody(string $body, int $status, SerializerInterface $serializer, ?string $contentType);
 
     public function parseArtaxStreamResponse(
         Response $response,

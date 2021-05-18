@@ -114,7 +114,8 @@ class Context implements ContextInterface
      */
     public function toTar()
     {
-        $process = new Process('/usr/bin/env tar c .', $this->directory);
+        $command = ['/usr/bin/env', 'tar', 'c', '.'];
+        $process = new Process($command, $this->directory);
         $process->run();
 
         if (!$process->isSuccessful()) {
